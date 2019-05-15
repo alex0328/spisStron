@@ -1,0 +1,2 @@
+# spisStron
+aplikacja do ćwiczeń
