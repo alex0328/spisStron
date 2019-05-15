@@ -1,0 +1,25 @@
+
+{% extends 'appefirst/base.html' %}
+{% csrf_token %}
+{% block content %}
+    <div class="wrapper">
+
+    {% if user.is_authenticated %}
+    <h2>Jesteś zarejestrowany</h2>
+
+    <h2>Have fun!</h2>
+    {% else %}
+
+    <h2>Witaj w mojej aplikacji.
+    Proponuję Ci świetną zabawę, kontent będzie dostosowany do Twoich preferencji.
+    Zarejestruj się dla lepszego doboru treści:</h2>
+    <a class="cta" href="{% url 'aobczaj:register' %}">Zarejestruj się</a>
+    <h2>Możesz też zalogować się za pomocą Facebooka</h2>
+    <button>Zaloguj przez Facebooka (usługa dostępna wkrótce</button>
+    <h2>Jeśli chcesz zobaczyć na czym to polega bez rejestracji - zapraszam</h2>
+
+{% endif %}
+
+    </div>
+
+{% endblock content %}
