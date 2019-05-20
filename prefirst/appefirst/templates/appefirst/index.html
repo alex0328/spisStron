@@ -6,36 +6,8 @@
 
     {% if user.is_authenticated %}
 
-      <div class="loop">
 
-        <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
-          {% for con in content %}
-          <li class="nav-item">
-            <a class="nav-link" id="pills-{{ con.country_name}}-tab" data-toggle="pill" href="#pills-{{ con.country_name}}" role="tab" aria-controls="pills-{{ con.country_name}}" aria-selected="true">{{ con.country_name}}</a>
-          </li>
-          <ul>
-            {% for i in con.products_set.all %}
-            <li>{{ i.product_name }}</li>
-            {% endfor %}
-          </ul>
-          {% endfor %}
-        </ul>
-
-
-
-
-
-
-    {% else %}
-
-    <h2>Bardzo nam przykro - nasza aplikacja jest przeznaczona tylko dla osób, które posiadają login i hasło</h2>
-
-{% endif %}
-
-    </div>
-
-      <!-- --------------------------- -->
-<div class="flex"></div>
+      <div class="flex">
       {% for con in content %}
 
           <div class="dropdown">
@@ -54,6 +26,20 @@
 
       {% endfor %}
 
+  </div>
     </div>
+
+
+
+    {% else %}
+
+    <h2>Bardzo nam przykro - nasza aplikacja jest przeznaczona tylko dla osób, które posiadają login i hasło</h2>
+
+{% endif %}
+
+    </div>
+
+      <!-- --------------------------- -->
+
 
 {% endblock content %}
