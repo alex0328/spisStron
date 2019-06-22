@@ -6,40 +6,7 @@
 		<div id="fh5co-wrapper">
 		<div id="fh5co-page">
 
-		<header id="fh5co-header-section" class="sticky-banner">
-			<div class="container">
-				<div class="nav-header">
-					<a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle dark"><i></i></a>
-					<h1 id="fh5co-logo"><a href="index.html"><i class="icon-airplane"></i>Travel</a></h1>
-					<!-- START #fh5co-menu-wrap -->
-					<nav id="fh5co-menu-wrap" role="navigation">
-						<ul class="sf-menu" id="fh5co-primary-menu">
-							<li class="active"><a href="index.html">Home</a></li>
-							<li>
-								<a href="#" class="fh5co-sub-ddown">Vacations</a>
-								<ul class="fh5co-sub-menu">
-									<li><a href="#">Family</a></li>
-									<li><a href="#">CSS3 &amp; HTML5</a></li>
-									<li><a href="#">Angular JS</a></li>
-									<li><a href="#">Node JS</a></li>
-									<li><a href="#">Django &amp; Python</a></li>
-								</ul>
-							</li>
-							<li><a href="flight.html">Flights</a></li>
-							<li><a href="hotel.html">Hotel</a></li>
-							<li><a href="car.html">Car</a></li>
-							<li><a href="blog.html">Blog</a></li>
-							{% if user.is_authenticated %}
-							<li><a href="{% url 'logout' %}"">Wyloguj:</a></li>
-							<li><a href="contact.html">{{ request.user }}</a></li>
-							{% else %}
-							<li><a href="{% url 'login' %}">Login</a></li>
-							{% endif %}
-						</ul>
-					</nav>
-				</div>
-			</div>
-		</header>
+
 
 		<!-- end:header-top -->
 	
@@ -56,78 +23,33 @@
 
 								  <!-- Nav tabs -->
 								   <ul class="nav nav-tabs" role="tablist">
-								      <li role="presentation" class="active">
-								      	<a href="#indo1" aria-controls="indo1" role="tab" data-toggle="tab">Indonesia1</a>
+									   {% for countr in country %}
+								      <li role="presentation" class="">
+								      	<a href="#{{ countr.country_name }}" aria-controls="{{ countr.country_name }}" role="tab" data-toggle="tab">{{ countr.country_name }}</a>
 								      </li>
-								      <li role="presentation">
-								    	   <a href="#indo2" aria-controls="indo2" role="tab" data-toggle="tab">Indonesia2</a>
-								      </li>
-								      <li role="presentation">
-								    	   <a href="#thailand" aria-controls="thailand" role="tab" data-toggle="tab">Thailand</a>
-								      </li>
-									   <li role="presentation">
-								    	   <a href="#vietnam" aria-controls="vietnam" role="tab" data-toggle="tab">Vietnam</a>
-								      </li>
-									   <li role="presentation">
-								    	   <a href="#saudi" aria-controls="saudi" role="tab" data-toggle="tab">Saudi Arabia</a>
-								      </li>
+									   {% endfor %}
+
 								   </ul>
 
 								   <!-- Tab panes -->
 									<div class="tab-content">
-									 <div role="tabpanel" class="tab-pane active" id="indo1">
+										{% for countr in country %}
+									 <div role="tabpanel" class="tab-pane" id="{{ countr.country_name }}">
 										<ul>
-											<li>Indo1</li>
-											<li>Garcinia</li>
-											<li>Penirum</li>
-											<li>Imove</li>
-											<li>Steislim</li>
-											<li>Detoxic</li>
+											{% for prod in countr.products_set.all %}
+											<li><a href="{% url 'appefirst:prod_det' prod.id %}">{{ prod.product_name }}</a></li>
+											{% endfor %}
+
 										</ul>
 
-									 </div>
 
-									 <div role="tabpanel" class="tab-pane" id="indo2">
-										 <ul>
-											 <li>Indo2</li>
-											<li>Garcinia</li>
-											<li>Penirum</li>
-											<li>Imove</li>
-											<li>Steislim</li>
-											<li>Detoxic</li>
-										</ul>
 									 </div>
+										{% endfor %}
 
-									 <div role="tabpanel" class="tab-pane" id="thailand">
-									 	<ul>
-											<li>Thailand</li>
-											<li>Garcinia</li>
-											<li>Penirum</li>
-											<li>Imove</li>
-											<li>Steislim</li>
-											<li>Detoxic</li>
-										</ul>
-									 </div>
-										<div role="tabpanel" class="tab-pane" id="vietnam">
-									 	<ul>
-											<li>Vietnam</li>
-											<li>Garcinia</li>
-											<li>Penirum</li>
-											<li>Imove</li>
-											<li>Steislim</li>
-											<li>Detoxic</li>
-										</ul>
-									 </div>
-										<div role="tabpanel" class="tab-pane" id="saudi">
-									 	<ul>
-											<li>Saudi</li>
-											<li>Garcinia</li>
-											<li>Penirum</li>
-											<li>Imove</li>
-											<li>Steislim</li>
-											<li>Detoxic</li>
-										</ul>
-									 </div>
+
+
+
+
 									</div>
 
 								</div>
@@ -135,13 +57,7 @@
 							<div class="col-sm-2 col-md-2">
 							</div>
 							<div class="desc2 animate-box">
-								<div class="col-sm-7 col-sm-push-1 col-md-7 col-md-push-1">
-									<p>HandCrafted by <a href="http://frehtml5.co/" target="_blank" class="fh5co-site-name">FreeHTML5.co</a></p>
-									<h2>Exclusive Limited Time Offer</h2>
-									<h3>Fly to Hong Kong via Los Angeles, USA</h3>
-									<span class="price">$599</span>
-									<!-- <p><a class="btn btn-primary btn-lg" href="#">Get Started</a></p> -->
-								</div>
+
 							</div>
 						</div>
 					</div>

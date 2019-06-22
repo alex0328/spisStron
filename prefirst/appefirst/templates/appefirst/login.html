@@ -1,12 +1,100 @@
-
+{% extends 'appefirst/base.html' %}
+{% load static %}
 {% block content %}
+
+
+
+
+
+		<div id="fh5co-wrapper">
+		<div id="fh5co-page">
+
+
+
+		<!-- end:header-top -->
+
+		<div class="fh5co-hero">
+			<div class="fh5co-overlay"></div>
+			<div class="fh5co-cover" data-stellar-background-ratio="0.5" style="background-image: url({% static 'appefirst/images/cover_bg_1.jpg' %});">
+				<div class="desc">
+					<div class="container">
+						<div class="row">
+							<div class="col-sm-2 col-md-2">
+							</div>
+							<div class="col-sm-8 col-md-8">
+								<div class="tabulation animate-box">
+
+								  <!-- Nav tabs -->
+								   <ul class="nav nav-tabs" role="tablist">
+									   {% for countr in country %}
+								      <li role="presentation" class="">
+								      	<a href="#{{ countr.country_name }}" aria-controls="{{ countr.country_name }}" role="tab" data-toggle="tab">{{ countr.country_name }}</a>
+								      </li>
+									   {% endfor %}
+
+								   </ul>
+
+								   <!-- Tab panes -->
+									<div class="tab-content text-center">
     <form method="post" action="{% url 'login' %}">
                 {% csrf_token %}
         <p class="login_form">{{ form.as_p }}</p>
-        <input class="submit" type="submit" value="Zaloguj">
+        <input class="submit btn btn-primary" type="submit" value="Zaloguj">
     </form>
     <div class="reg">
-    <h2>Nie masz konta?</h2>
+        <div class="text-info">
+    <p>Nie masz konta? - zgłoś się do administratora</p>
 
     </div>
-{% endblock content %}
+
+
+
+
+
+									</div>
+
+								</div>
+							</div>
+							<div class="col-sm-2 col-md-2">
+							</div>
+							<div class="desc2 animate-box">
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+
+
+	<script src="{% static 'appefirst/js/jquery.min.js' %}"></script>
+	<!-- jQuery Easing -->
+	<script src="{% static 'appefirst/js/jquery.easing.1.3.js' %}"></script>
+	<!-- Bootstrap -->
+	<script src="{% static 'appefirst/js/bootstrap.min.js' %}"></script>
+	<!-- Waypoints -->
+	<script src="{% static 'appefirst/js/jquery.waypoints.min.js' %}"></script>
+	<script src="{% static 'appefirst/js/sticky.js' %}"></script>
+
+	<!-- Stellar -->
+	<script src="{% static 'appefirst/js/jquery.stellar.min.js' %}"></script>
+	<!-- Superfish -->
+	<script src="{% static 'appefirst/js/hoverIntent.js' %}"></script>
+	<script src="{% static 'appefirst/js/superfish.js' %}"></script>
+	<!-- Magnific Popup -->
+	<script src="{% static 'appefirst/js/jquery.magnific-popup.min.js' %}"></script>
+	<script src="{% static 'appefirst/js/magnific-popup-options.js' %}"></script>
+	<!-- Date Picker -->
+	<script src="{% static 'appefirst/js/bootstrap-datepicker.min.js' %}"></script>
+	<!-- CS Select -->
+	<script src="{% static 'appefirst/js/classie.js' %}"></script>
+	<script src="{% static 'appefirst/js/selectFx.js' %}"></script>
+
+	<!-- Main JS -->
+	<script src="{% static 'appefirst/js/main.js' %}"></script>
+
+
+{% endblock %}
+
