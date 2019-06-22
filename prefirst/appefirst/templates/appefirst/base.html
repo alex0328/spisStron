@@ -1,48 +1,80 @@
 {% load static %}
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <link rel="stylesheet" type="text/css" href="{% static 'appefirst/style.css' %}">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <meta charset="UTF-8">
-    <title>Efirst Baby!</title>
-</head>
-<body>
-    <header class="header">
-        <div class="div_logo">
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+	<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Travel &mdash; 100% Free Fully Responsive HTML5 Template by FREEHTML5.co</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Free HTML5 Template by FREEHTML5.CO" />
+	<meta name="keywords" content="free html5, free template, free bootstrap, html5, css3, mobile first, responsive" />
+	<meta name="author" content="FREEHTML5.CO" />
+		<link rel="stylesheet" type="text/css" href="{% static 'appefirst/css/style.css' %}">
 
-        </div>
-        <div class="menu">
-            <ul class="nav">
-                <li class="nav-item">
-                    <a href='{% url 'appefirst:index' %}' >Główna</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#" >Najnowsze memy</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#" >Dodaj własny kawałek internetu</a>
-                </li>
-            </ul>
-            <ul class="menu">
-                {% if user.is_authenticated %}
-                    <h2 class="white">{{ user }}</h2>
-                    <a class="log nav-item nav-link" href="{% url 'logout' %}">Wyloguj</a>
-                {% else %}
-                    <ul class="nav">
-                        <li class="nav-item">
-                            <a class="unlog nav-item nav-link" href="{% url 'login' %}">Login</a>
-                        </li>
-                        <li class="nav-item">
-                        </li>
-                {% endif %}
-            </ul>
-        </div>
-</header>
-<div>
+
+  <!--
+	//////////////////////////////////////////////////////
+
+	FREE HTML5 TEMPLATE
+	DESIGNED & DEVELOPED by FREEHTML5.CO
+
+	Website: 		http://freehtml5.co/
+	Email: 			info@freehtml5.co
+	Twitter: 		http://twitter.com/fh5co
+	Facebook: 		https://www.facebook.com/fh5co
+
+	//////////////////////////////////////////////////////
+	 -->
+
+  	<!-- Facebook and Twitter integration -->
+	<meta property="og:title" content=""/>
+	<meta property="og:image" content=""/>
+	<meta property="og:url" content=""/>
+	<meta property="og:site_name" content=""/>
+	<meta property="og:description" content=""/>
+	<meta name="twitter:title" content="" />
+	<meta name="twitter:image" content="" />
+	<meta name="twitter:url" content="" />
+	<meta name="twitter:card" content="" />
+
+	<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+	<link rel="shortcut icon" href="favicon.ico">
+
+	<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700,300' rel='stylesheet' type='text/css'>
+
+	<!-- Animate.css -->
+	<link rel="stylesheet" href="{% static 'appefirst/css/animate.css' %}">
+	<!-- Icomoon Icon Fonts-->
+	<link rel="stylesheet" href="{% static 'appefirst/css/icomoon.css' %}">
+	<!-- Bootstrap  -->
+	<link rel="stylesheet" href="{% static 'appefirst/css/bootstrap.css' %}">
+	<!-- Superfish -->
+	<link rel="stylesheet" href="{% static 'appefirst/css/superfish.css' %}">
+	<!-- Magnific Popup -->
+	<link rel="stylesheet" href="{% static 'appefirst/css/magnific-popup.css' %}">
+	<!-- Date Picker -->
+	<link rel="stylesheet" href="{% static 'appefirst/css/bootstrap-datepicker.min.css' %}">
+	<!-- CS Select -->
+	<link rel="stylesheet" href="{% static 'appefirst/css/cs-select.css' %}">
+	<link rel="stylesheet" href="{% static 'appefirst/css/cs-skin-border.css' %}">
+
+	<link rel="stylesheet" href="{% static 'appefirst/css/style.css' %}">
+
+
+	<!-- Modernizr JS -->
+	<script src="{% static 'appefirst/js/modernizr-2.6.2.min.js' %}"></script>
+	<!-- FOR IE9 below -->
+	<!--[if lt IE 9]>
+	<script src="{% static 'appefirst/js/respond.min.js' %}"></script>
+	<![endif]-->
+
+	</head>
+	<body>
+
+<div class="wrapper">
         {% block content %}
         {% endblock %}
 </div>
