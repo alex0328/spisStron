@@ -82,7 +82,7 @@
 					<nav id="fh5co-menu-wrap" role="navigation">
 						<ul class="sf-menu" id="fh5co-primary-menu">
 							<li class="active"><a href="{% url 'appefirst:index'%}">Home</a></li>
-							<li><a href="flight.html">Domains</a></li>
+							<li><a href="{% url 'appefirst:domains'%}">Domains</a></li>
 							{% if user.is_authenticated %}
 							<li><a href="{% url 'logout' %}"">Wyloguj:</a></li>
 							<li><a href="contact.html">{{ request.user }}</a></li>

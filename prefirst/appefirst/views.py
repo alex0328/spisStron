@@ -19,3 +19,12 @@ class ProductView(LoginRequiredMixin, View):
         ctx = {"prod": product,
                "domain": domain}
         return render(request, 'appefirst/prod_det.html', ctx)
+
+
+class DomainsView(LoginRequiredMixin, View):
+    def get(self, request):
+        domains_distinct = models.Domains.objects.all().distinct('domain_owner')
+        domains = models.Domains.objects.all()
+        ctx = {"domains": domains,
+               "domains_distinct": domains_distinct}
+        return render(request, 'appefirst/domains.html', ctx)

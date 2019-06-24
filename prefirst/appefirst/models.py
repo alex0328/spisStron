@@ -59,8 +59,8 @@ class Pages(models.Model):
 
 class Domains(models.Model):
     domain_name = models.CharField(max_length=64, default=None)
-    domain_token = models.CharField(max_length=64, default=None)
+    domain_token = models.CharField(max_length=64, default=None, blank=True)
     domain_owner = models.CharField(choices=DOMAINS_OWNERS, max_length=30)
 
     def __str__(self):
-        return "{} {}".format(self.page_type, self.page_product)
+        return "{}   owner:{}".format(self.domain_name, self.domain_owner)
