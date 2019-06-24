@@ -26,6 +26,9 @@ class Country(models.Model):
     def __str__(self):
         return self.country_name
 
+    class Meta:
+        ordering = ['country_name']
+
 class Products(models.Model):
     product_name = models.CharField(max_length=64)
     product_country = models.ForeignKey(Country, on_delete=models.PROTECT)
@@ -39,6 +42,8 @@ class Products(models.Model):
     product_is_smth = models.BooleanField(default=True)
     product_notes = models.CharField(max_length=300, default=None)
 
+    class Meta:
+        ordering = ['product_name']
 
     def __str__(self):
         return "{} {}".format(self.product_name, self.product_country)
