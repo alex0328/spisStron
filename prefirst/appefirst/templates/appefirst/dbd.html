@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>Numer losowania: {{num_losowania}}</div>
+<div>Data losowania: {{data_losowania}}</div>
+<div>Numery: {{numerki}}</div>
+
+<form method="post">
+    <div><input type="date" name="tile"></div>
+    <div><input type="text" name="content"></div>
+    <input type="submit" value="Wyślij">
+</form>
+{{ request }}
+
+
+</body>
+</html>

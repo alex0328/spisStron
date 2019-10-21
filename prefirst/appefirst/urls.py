@@ -8,6 +8,7 @@ from django.conf import settings
 app_name = 'appefirst'
 urlpatterns = [
     path('', views.MainPageView.as_view(), name='index'),
+    path('dbd', views.DBDView.as_view(), name='dbd'),
     path('prod/<int:id>', views.ProductView.as_view(), name='prod_det'),
     path('domains', views.DomainsView.as_view(), name='domains'),
 
