@@ -2,6 +2,8 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render
 from django.views import View
 from appefirst import models
+from xml.etree import ElementTree
+import feedparser
 import requests
 
 
@@ -42,14 +44,34 @@ class DBDView(LoginRequiredMixin, View):
                 number_5=numerki[4],
                 number_6=numerki[5]
             )
-        request=request
         print('------------')
-        print(request.is_ajax)
+        print(request.is_ajax())
         print()
-        ctx = {'numerki': ','.join(numerki),
-               'num_losowania': num_losowania,
-               'data_losowania': data_losowania,
-               'request': request.user
+
+        url2 = 'https://www.tvn24.pl/najnowsze.xml'
+        news = requests.get(url2)
+        feeds = feedparser.parse('https://www.tvn24.pl/najnowsze.xml')
+        news_title=[]
+        news_href=[]
+        for j in feeds.entries:
+            news_title.append(j.title)
+            news_href.append(j.links[0]['href'])
+        ctx = { 'new1_title': news_title[0],
+                'new2_title': news_title[1],
+                'new3_title': news_title[2],
+                'new4_title': news_title[3],
+                'new5_title': news_title[4],
+                'new6_title': news_title[5],
+                'new1_href': news_href[0],
+                'new2_href': news_href[2],
+                'new3_href': news_href[3],
+                'new4_href': news_href[4],
+                'new5_href': news_href[5],
+                'new6_href': news_href[6],
+                'numerki': ','.join(numerki),
+                'num_losowania': num_losowania,
+                'data_losowania': data_losowania,
+                'request': request.user
                }
         return render(request, 'appefirst/dbd.html', ctx)
 
